@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class CameraSystem : MonoBehaviour
@@ -12,8 +10,7 @@ public class CameraSystem : MonoBehaviour
     private Canvas DownloadUI;
     private bool Ativo = false;
     private bool pressed = false;
-
-
+    
     void Start()
     {
         Jogador = GameObject.FindWithTag("Player").GetComponentInChildren<Player>();
@@ -26,18 +23,13 @@ public class CameraSystem : MonoBehaviour
     {
         if (Ativo)
         {
-
             botao.onClick.AddListener((UnityEngine.Events.UnityAction)this.OnClick);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Jogador.enabled = false;
                 DownloadUI.enabled = true;
                 pressed = true;
-
-
-
             }
-
         }
 
         if (pressed)
@@ -48,10 +40,8 @@ public class CameraSystem : MonoBehaviour
                 DownloadUI.enabled = false;
                 Jogador.enabled = true;
                 pressed = false;
-
             }
         }
-
     }
 
     public void OnClick()
@@ -76,8 +66,6 @@ public class CameraSystem : MonoBehaviour
             botao.gameObject.GetComponent<Image>().sprite = SecuritySprite;
             botao.interactable = true;
             Ativo = true;
-       
-
         }
     }
 
@@ -92,7 +80,6 @@ public class CameraSystem : MonoBehaviour
             Ativo = false;
             botao.onClick.AddListener((UnityEngine.Events.UnityAction)this.LeaveCameras);
             botao.onClick.RemoveListener((UnityEngine.Events.UnityAction)this.OnClick);
-
         }
     }
 }

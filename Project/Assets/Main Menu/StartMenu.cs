@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 public class StartMenu : MonoBehaviour
-{
-    // Start is called before the first frame update
+{ 
+    private AppEntryPoint _appEntryPoint;
+
+    [Inject]
+    public void Conctructor(AppEntryPoint appEntryPoint)
+    {
+        _appEntryPoint = appEntryPoint;
+    }
+    
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        _appEntryPoint.LoadMainScene();
     }
-
-
 }

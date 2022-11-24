@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -17,20 +15,18 @@ public class Player : MonoBehaviour
     {
         Impostor,
         Crew
-
     }
-
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         PlayerHud = GameObject.FindWithTag("PlayerUI");
         Playerrgidbody = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
+        if (PlayerHud.GetComponentInChildren<Slider>() == null) return;
+        
         PlayerHud.GetComponentInChildren<Slider>().value = ProgressTasks.GetProgress();
         movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0f);
         anim.SetFloat("Horizontal", movement.x);
@@ -45,8 +41,6 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector3(2.53772f, transform.localScale.y, transform.localScale.z);
         }
-
-
     }
 
     private void FixedUpdate()

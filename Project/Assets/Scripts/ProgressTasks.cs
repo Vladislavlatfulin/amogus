@@ -33,7 +33,4 @@ public class ProgressTasks : MonoBehaviour
     {
         ++TaskCount;
     }
-
-
-
 }

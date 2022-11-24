@@ -22,7 +22,6 @@ public class DownloadMinigame : MonoBehaviour
 
     void Start()
     {
-
         playerent = GameObject.FindWithTag("Player").GetComponentInChildren<Player>();
         usebutton = GameObject.FindWithTag("PlayerUI").GetComponentInChildren<Button>();
         DownloadUI = GetComponentInChildren<Canvas>();
@@ -39,7 +38,6 @@ public class DownloadMinigame : MonoBehaviour
                 interact();
 
             }
-
         }
 
         if (pressed)
@@ -59,10 +57,7 @@ public class DownloadMinigame : MonoBehaviour
                 usebutton.interactable = false;
                 ProgressTasks.SetProgress(ProgressTasks.GetProgress() + ProgressTasks.GetDistributedValue());
             }
-
-
         }
-
     }
 
     void interact()
@@ -81,17 +76,15 @@ public class DownloadMinigame : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
        if ( collision.CompareTag("Player") && collision.GetComponent<Player>().Playert != Player.TypePlayer.Impostor)
-        {
+       {
             Active = true;
             if(!IsCompleted)
                 usebutton.interactable = true;
-            
-        } 
+       } 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Player"))
         {
             usebutton.interactable = false;
