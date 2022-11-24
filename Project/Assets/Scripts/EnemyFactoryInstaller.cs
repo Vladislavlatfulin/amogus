@@ -11,20 +11,19 @@ public class EnemyFactoryInstaller : MonoInstaller
         Container.BindInstance(_hardEnemy);
         Container.BindInstance(_mediumEnemy);
         
-        Debug.Log("create");
         BindHardFactory();
         BindMediumFactory();
     }
     
     private void BindHardFactory()
     {
-        Container.BindInterfacesAndSelfTo<HardEnemy>()
+        Container.BindInterfacesAndSelfTo<HardEnemyFactory>()
             .AsCached();
     }
     
     private void BindMediumFactory()
     {
-        Container.BindInterfacesAndSelfTo<MediumEnemy>()
+        Container.BindInterfacesAndSelfTo<MediumEnemyFactory>()
             .AsCached();
     }
 }
